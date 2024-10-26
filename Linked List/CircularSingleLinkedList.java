@@ -44,9 +44,9 @@ public class CircularSingleLinkedList {
             current = next;
         } while (current != first);
 
-        tail.next = prev;
-        tail = head;
+        current.next = prev;
         head = prev;
+        tail = current
     }
 
     public void deleteFromTail() {
