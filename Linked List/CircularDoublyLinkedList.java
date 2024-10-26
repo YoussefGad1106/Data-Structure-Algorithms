@@ -40,6 +40,11 @@ public class CircularDoublyLinkedList {
     Node temp = null;  // Temporary node to help with swapping
 
     // Using temp to reverse current.next & current.prev
+       /* to reverse A and B using temp var
+           temp = A;
+           A = B;
+           B = Temp;
+       */
     do {
         temp = current.next;
         current.next = current.prev;
@@ -52,7 +57,6 @@ public class CircularDoublyLinkedList {
     head = tail;
     tail = temp;
 
-    // Fix the circular links between head and tail
     head.prev = tail;
     tail.next = head;
 }
