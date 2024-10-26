@@ -33,23 +33,29 @@ public class CircularDoublyLinkedList {
         return false;
     }
 
-    public void reverseList() {
-        if (isEmpty() || head.next == head) return;
+   public void reverseList() {
+    if (isEmpty() || head.next == head) return;
 
-        Node current = head;
-        Node temp = null;
+    Node current = head;
+    Node temp = null;  // Temporary node to help with swapping
 
-        do {
-            temp = current.next;
-            current.next = current.prev;
-            current.prev = temp;
-            current = temp;
-        } while (current != head);
+    // Using temp to reverse current.next & current.prev
+    do {
+        temp = current.next;
+        current.next = current.prev;
+        current.prev = temp;
+        current = temp;
+    } while (current != head);
 
-        temp = head;
-        head = tail;
-        tail = temp;
-    }
+    // Swap head and tail
+    temp = head;
+    head = tail;
+    tail = temp;
+
+    // Fix the circular links between head and tail
+    head.prev = tail;
+    tail.next = head;
+}
 
     public void deleteFromTail() {
         if (isEmpty()) return;
