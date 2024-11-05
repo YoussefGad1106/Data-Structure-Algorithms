@@ -9,6 +9,16 @@ public class PhoneList {
 
     public void addContact(String name, String phoneNumber)
     {
+        if (name == null || name.isEmpty() || phoneNumber == null || phoneNumber.isEmpty()) { 
+            System.out.println("Invalid contact details. Both name and phone number are required.");
+            return;
+        }
+        
+        if (searchContact(name) != null) {
+            System.out.println("Contact already exists.");
+            return;
+        }
+        
         System.out.println("Adding Contact : ");
 
         if (isEmpty()) {
